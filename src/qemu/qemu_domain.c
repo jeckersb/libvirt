@@ -37,6 +37,7 @@
 #include "domain_event.h"
 #include "virtime.h"
 #include "storage_file.h"
+#include "virchrdev.h"
 
 #include <sys/time.h>
 #include <fcntl.h>
@@ -215,7 +216,7 @@ static void *qemuDomainObjPrivateAlloc(void)
     if (qemuDomainObjInitJob(priv) < 0)
         goto error;
 
-    if (!(priv->cons = virConsoleAlloc()))
+    if (!(priv->devs = virChrdevAlloc()))
         goto error;
 
     priv->migMaxBandwidth = QEMU_DOMAIN_MIG_BANDWIDTH_MAX;
@@ -240,7 +241,7 @@ static void qemuDomainObjPrivateFree(void *data)
     VIR_FREE(priv->lockState);
     VIR_FREE(priv->origname);
 
-    virConsoleFree(priv->cons);
+    virChrdevFree(priv->devs);
 
     /* This should never be non-NULL if we get here, but just in case... */
     if (priv->mon) {
