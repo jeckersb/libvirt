@@ -914,6 +914,11 @@ typedef int
                           const char *mountPoint,
                           unsigned long long minimum,
                           unsigned int flags);
+typedef int
+(*virDrvDomainOpenChannel)(virDomainPtr dom,
+                           const char *dev_name,
+                           virStreamPtr st,
+                           unsigned int flags);
 
 /**
  * _virDriver:
@@ -1107,6 +1112,7 @@ struct _virDriver {
     virDrvNodeGetCPUMap                 nodeGetCPUMap;
     virDrvDomainFSTrim                  domainFSTrim;
     virDrvDomainSendProcessSignal       domainSendProcessSignal;
+    virDrvDomainOpenChannel             domainOpenChannel;
 };
 
 typedef int

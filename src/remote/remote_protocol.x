@@ -2696,6 +2696,12 @@ struct remote_domain_fstrim_args {
     unsigned int flags;
 };
 
+struct remote_domain_open_channel_args {
+    remote_nonnull_domain dom;
+    remote_string name;
+    unsigned int flags;
+};
+
 /*----- Protocol. -----*/
 
 /* Define the program number, protocol version and procedure numbers here. */
@@ -3042,7 +3048,8 @@ enum remote_procedure {
     REMOTE_PROC_DOMAIN_EVENT_PMSUSPEND_DISK = 292, /* autogen autogen */
     REMOTE_PROC_NODE_GET_CPU_MAP = 293, /* skipgen skipgen */
     REMOTE_PROC_DOMAIN_FSTRIM = 294, /* autogen autogen */
-    REMOTE_PROC_DOMAIN_SEND_PROCESS_SIGNAL = 295 /* autogen autogen */
+    REMOTE_PROC_DOMAIN_SEND_PROCESS_SIGNAL = 295, /* autogen autogen */
+    REMOTE_PROC_DOMAIN_OPEN_CHANNEL = 296 /* autogen autogen | readstream@2 */
 
     /*
      * Notice how the entries are grouped in sets of 10 ?

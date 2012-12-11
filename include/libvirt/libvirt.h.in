@@ -3735,6 +3735,11 @@ int virConnectIsEncrypted(virConnectPtr conn);
 int virConnectIsSecure(virConnectPtr conn);
 int virConnectIsAlive(virConnectPtr conn);
 
+int virDomainOpenChannel(virDomainPtr dom,
+                         const char *dev_name,
+                         virStreamPtr st,
+                         unsigned int flags);
+
 /*
  * CPU specification API
  */

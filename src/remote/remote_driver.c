@@ -6153,6 +6153,7 @@ static virDriver remote_driver = {
     .nodeGetMemoryParameters = remoteNodeGetMemoryParameters, /* 0.10.2 */
     .nodeGetCPUMap = remoteNodeGetCPUMap, /* 1.0.0 */
     .domainFSTrim = remoteDomainFSTrim, /* 1.0.1 */
+    .domainOpenChannel = remoteDomainOpenChannel, /* 1.0.1 */
 };
 
 static virNetworkDriver network_driver = {
