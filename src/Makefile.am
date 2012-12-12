@@ -237,7 +237,7 @@ CPU_CONF_SOURCES =						\
 
 # Safe console handling helper APIs
 CONSOLE_CONF_SOURCES =						\
-		conf/virconsole.c conf/virconsole.h
+		conf/virchrdev.c conf/virchrdev.h
 
 # Device Helper APIs
 DEVICE_CONF_SOURCES =                                           \

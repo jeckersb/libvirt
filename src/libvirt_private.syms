@@ -1350,7 +1350,7 @@ virAuditOpen;
 virAuditSend;
 
 
-# virconsole.h
+# virchrdev.h
 virConsoleAlloc;
 virConsoleFree;
 virConsoleOpen;
